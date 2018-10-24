@@ -1,4 +1,4 @@
-package com.carritodecervezas.cerveza;
+package com.carritodecervezas.controller;
 
 public class CervezaNotFoundException extends RuntimeException {
 

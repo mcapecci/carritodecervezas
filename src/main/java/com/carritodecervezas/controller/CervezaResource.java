@@ -1,4 +1,4 @@
-package com.carritodecervezas.cerveza;
+package com.carritodecervezas.controller;
 
 import java.net.URI;
 import java.util.List;
@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import com.carritodecervezas.model.Cerveza;
+import com.carritodecervezas.repository.CervezaRepository;
 
 @RestController
 public class CervezaResource {
