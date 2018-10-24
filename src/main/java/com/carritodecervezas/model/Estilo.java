@@ -1,0 +1,5 @@
+package com.carritodecervezas.model;
+
+public enum Estilo {
+	AMERICAN_BARLEY_WINE, AMERICAN_PALE_ALE, RED_ALE, WHEAT_ALE, IMPERIAL_IPA, AMERICAN_PALE_LAGER, LIGHT_LAGER, RED_LAGER 
+}
