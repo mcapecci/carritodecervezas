@@ -3,12 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.subsidios</groupId>
-	<artifactId>subsidios</artifactId> 
+	<groupId>com.carritodecervezas</groupId>
+	<artifactId>carritodecervezas</artifactId> 
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>subsidios</name>
+	<name>carritodecervezas</name>
 	<description>Mg. Ing. de Software - Diseño de Bases de Datos  - UNLP </description>
 
 	<parent>

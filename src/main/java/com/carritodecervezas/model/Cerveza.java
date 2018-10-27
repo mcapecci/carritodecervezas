@@ -1,12 +1,14 @@
 package com.carritodecervezas.model;
 
 public class Cerveza {
-	private Long id;
+	private long id;
 	private String nombre;
 	private Tipo tipo;
-	private Double precio;
-	
-	
+	private int abv;
+	private int ibu;
+	private double precio;
+	private boolean nacional;
+	private int stock;
 
 	@Override
 	public String toString() {
@@ -17,7 +19,7 @@ public class Cerveza {
 		super();
 	}
 
-	public Cerveza(Long id, String nombre, Tipo tipo, Double precio) {
+	public Cerveza(long id, String nombre, Tipo tipo, double precio) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -25,7 +27,7 @@ public class Cerveza {
 		this.setPrecio(precio);
 	}
 	
-	public Cerveza(Long id, String nombre, Tipo tipo) {
+	public Cerveza(long id, String nombre, Tipo tipo) {
 		this(id, nombre, tipo, 0.0);
 	}
 	
@@ -34,10 +36,10 @@ public class Cerveza {
 		this.nombre = nombre;
 	}
 	
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public String getNombre() {
@@ -55,11 +57,43 @@ public class Cerveza {
 		this.tipo = tipo;
 	}
 
-	public Double getPrecio() {
+	public int getAbv() {
+		return abv;
+	}
+
+	public void setAbv(int abv) {
+		this.abv = abv;
+	}
+
+	public int getIbu() {
+		return ibu;
+	}
+
+	public void setIbu(int ibu) {
+		this.ibu = ibu;
+	}
+
+	public double getPrecio() {
 		return precio;
 	}
 
-	public void setPrecio(Double precio) {
+	public void setPrecio(double precio) {
 		this.precio = precio;
+	}
+
+	public boolean getNacional() {
+		return nacional;
+	}
+
+	public void setNacional(boolean nacional) {
+		this.nacional = nacional;
+	}
+
+	public int getStock() {
+		return stock;
+	}
+
+	public void setStock(int stock) {
+		this.stock = stock;
 	}
 }
