@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.carritodecervezas.model">
+
+	<class name="Carrito" table="Carrito">
+		<id name="id" column="id">
+			<generator class="native" />
+		</id>
+		
+		<set name="items" lazy="true" cascade="all">
+			<key column="idCarrito" />
+			<one-to-many class="ItemCarrito" />
+		</set>
+	</class>
+</hibernate-mapping>

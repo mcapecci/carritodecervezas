@@ -1,3 +1,7 @@
+/* Carrito */
+insert into Carrito (id) values (1);
+
+/* Cerveza */
 insert into Cerveza (id, nombre, tipo)
 values
 (1,'Cerveza 1','ALE'),
