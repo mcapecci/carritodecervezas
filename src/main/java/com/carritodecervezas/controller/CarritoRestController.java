@@ -16,14 +16,42 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.carritodecervezas.model.Carrito;
-import com.carritodecervezas.repository.CarritoRepository;
+import com.carritodecervezas.service.CarritoService;
 
 @RestController
-public class CarritoResource {
+public class CarritoRestController {
 
 	@Autowired
-	private CarritoRepository carritoRepository;
+	private CarritoService service;
 
+	@GetMapping("/carrito/{id}")
+	public Carrito getCarrito(@PathVariable long id) {
+		Optional<Carrito> carrito = service.getCarrito(id);
+
+		if (!carrito.isPresent())
+			throw new CarritoNotFoundException("id-" + id);
+
+		return carrito.get();
+	}
+	
+	@PutMapping("/carrito/{id}")
+	public ResponseEntity<Object> addItems(@RequestBody Carrito carrito, @PathVariable long id) {
+
+		Optional<Carrito> carritoOptional = service.getCarrito(id);
+
+		if (!carritoOptional.isPresent())
+			return ResponseEntity.notFound().build();
+
+		carrito.getItems();
+		/*
+		carrito.setId(id);
+		
+		carritoRepository.save(carrito);
+		*/
+		return ResponseEntity.noContent().build();
+		
+	}
+	/*
 	@GetMapping("/carritos")
 	public List<Carrito> retrieveAllCarritos() {
 		return carritoRepository.findAll();
@@ -69,4 +97,5 @@ public class CarritoResource {
 
 		return ResponseEntity.noContent().build();
 	}
+	*/
 }

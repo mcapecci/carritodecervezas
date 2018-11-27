@@ -16,37 +16,37 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.carritodecervezas.model.Cerveza;
-import com.carritodecervezas.repository.CervezaRepository;
+import com.carritodecervezas.service.CervezaService;
 
 @RestController
-public class CervezaResource {
+public class CervezaRestController {
 
 	@Autowired
-	private CervezaRepository cervezaRepository;
-
+	private CervezaService service;
+	
 	@GetMapping("/cervezas")
-	public List<Cerveza> retrieveAllCervezas() {
-		return cervezaRepository.findAll();
+	public List<Cerveza> getAllCervezas() {
+		return service.getAllCervezas();
 	}
 	
 	@GetMapping("/cervezas/{id}")
-	public Cerveza retrieveCerveza(@PathVariable long id) {
-		Optional<Cerveza> cerveza = cervezaRepository.findById(id);
+	public Cerveza getCerveza(@PathVariable long id) {
+		Optional<Cerveza> cerveza = service.getCerveza(id);
 
 		if (!cerveza.isPresent())
 			throw new CervezaNotFoundException("id-" + id);
 
 		return cerveza.get();
 	}
-
+	
 	@DeleteMapping("/cervezas/{id}")
 	public void deleteCerveza(@PathVariable long id) {
-		cervezaRepository.deleteById(id);
+		service.deleteCerveza(id);
 	}
-
+	
 	@PostMapping("/cervezas")
 	public ResponseEntity<Object> createCerveza(@RequestBody Cerveza cerveza) {
-		Cerveza savedCerveza = cervezaRepository.save(cerveza);
+		Cerveza savedCerveza = service.addCerveza(cerveza);
 
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 				.buildAndExpand(savedCerveza.getId()).toUri();
@@ -58,14 +58,14 @@ public class CervezaResource {
 	@PutMapping("/cervezas/{id}")
 	public ResponseEntity<Object> updateCerveza(@RequestBody Cerveza cerveza, @PathVariable long id) {
 
-		Optional<Cerveza> cervezaOptional = cervezaRepository.findById(id);
+		Optional<Cerveza> cervezaOptional = service.getCerveza(id);
 
 		if (!cervezaOptional.isPresent())
 			return ResponseEntity.notFound().build();
 
 		cerveza.setId(id);
 		
-		cervezaRepository.save(cerveza);
+		service.addCerveza(cerveza);
 
 		return ResponseEntity.noContent().build();
 	}

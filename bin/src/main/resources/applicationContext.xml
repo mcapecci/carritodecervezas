@@ -9,6 +9,11 @@
        http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+
+
+	 <import resource="classpath:hibernate.cfg.xml" />
+	<!--<import resource="hibernate/hibernate.cfg.xml" />-->
 	
 </beans>
 
