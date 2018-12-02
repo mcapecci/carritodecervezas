@@ -4,21 +4,18 @@
  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="com.carritodecervezas.model">
-
-	<class name="Cerveza" table="Cerveza">
+	<class name="Cerveceria" table="cerveceria">
 		<id name="id" column="id">
 			<generator class="native" />
 		</id>
-		
 		<property name="nombre"/>
-		
-		<property name="tipo" column="tipo">
-		    <type name="org.hibernate.type.EnumType">
-		        <param name="enumClass">com.carritodecervezas.model.Tipo</param>
-		            <param name="type">12</param>
-		    </type>
-		 </property> 
-		 
-		 <property name="precio"/>
+		<set name="carritos" lazy="true" cascade="all">
+			<key column="idCerveceria" />
+			<one-to-many class="Carrito" />
+		</set>
+		<set name="cervezas" lazy="true" cascade="all">
+			<key column="idCerveceria" />
+			<one-to-many class="Cerveza" />
+		</set>
 	</class>
 </hibernate-mapping>

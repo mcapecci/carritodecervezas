@@ -12,9 +12,9 @@ public class Cerveza {
 
 	@Override
 	public String toString() {
-		return String.format("Cerveza [nombre=%s,precio=%s]", nombre, precio);
+		return "Cerveza [id=" + id + ", nombre=" + nombre + ", tipo=" + tipo + ", precio=" + precio + "]";
 	}
-	
+
 	public Cerveza() {
 		super();
 	}
@@ -36,6 +36,12 @@ public class Cerveza {
 		this.nombre = nombre;
 	}
 	
+	public Cerveza(String nombre, Tipo tipo, double precio) {
+		this.nombre = nombre;
+		this.tipo = tipo;
+		this.setPrecio(precio);
+	}
+
 	public long getId() {
 		return id;
 	}

@@ -1,12 +1,12 @@
 package com.carritodecervezas.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
+import java.util.HashSet;
 
 public class Carrito {
 	
 	private long id;
-	private List<ItemCarrito> items = new ArrayList<ItemCarrito>();
+	private Collection<ItemCarrito> items = new HashSet<ItemCarrito>();
 	
 	public Carrito() {
 		super();
@@ -20,11 +20,11 @@ public class Carrito {
 		this.id = id;
 	}
 
-	public List<ItemCarrito> getItems() {
+	public Collection<ItemCarrito> getItems() {
 		return items;
 	}
 
-	public void setItems(List<ItemCarrito> items) {
+	public void setItems(Collection<ItemCarrito> items) {
 		this.items = items;
 	}
 
